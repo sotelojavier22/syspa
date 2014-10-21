@@ -1,0 +1,68 @@
+
+th a {
+	display: block;
+	padding: 2px 4px;
+	text-decoration: none;
+}
+th a.asc:after {
+	content: ' ⇣';
+}
+th a.desc:after {
+	content: ' ⇡';
+}
+table tr {
+	padding: 6px;
+	text-align: left;
+	vertical-align: top;
+	border-bottom:1px solid #ddd;
+}
+
+table td {
+	padding: 6px;
+	text-align: center;
+	vertical-align: top;
+	
+}
+
+
+table tr:nth-child(even) {
+	background: #f9f9f9;
+}
+td.actions {
+	text-align: center;
+	white-space: nowrap;
+	width : 3px;
+	height: 3px;
+
+}
+table td.actions a {
+	margin: 0px 6px;
+	padding:2px 5px;
+}
+table tr.mitr {
+	padding: 6px;
+	text-align: left;
+	vertical-align: top;
+	
+}
+
+table td.mitd {
+	padding: 3px;
+	text-align: right;
+	vertical-align: top;
+	
+}
+table td.mitdLeft {
+	padding-left: 50px;
+	text-align: left;
+	vertical-align: top;
+	
+
+}
+table td.mitdBotton {
+	padding-right: 80px;
+	text-align: right;
+	vertical-align: top;
+	
+
+}

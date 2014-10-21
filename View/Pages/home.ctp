@@ -1,0 +1,6 @@
+<?php
+
+$this->layoyt ='default';
+
+
+?>
