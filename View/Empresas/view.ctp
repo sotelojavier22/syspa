@@ -6,7 +6,7 @@
 				<?php 
 				echo $this->html->image("mi_form/edit.png", array(
 			    		"alt" => "Editar", 'title' =>"Editar Empresa",
-			    		'url' => array('controller' => 'empresas','action' => 'edit',$empresa['Empresa']['id']), array('class'=>'edit')
+			    		'url' => array('controller' => 'empresas','action' => 'editar',$empresa['Empresa']['id']), array('class'=>'editar')
 					)); 
 				?>	
 			<?php 

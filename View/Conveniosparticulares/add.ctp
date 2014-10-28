@@ -36,6 +36,9 @@
 	<fieldset>
 		<legend><?php echo __('Datos Convenio particular'); ?></legend>
 	<table>	
+	
+		
+	</tr>
 		<tr>
 			<td class="mitd">
 				<?php echo $this->Form->input('FechaFirmaConvenio');?>
@@ -57,7 +60,7 @@
 				<?php echo $this->Form->input('NombreObraSocial',array('label'=>'Obra social: '));?>
 			</td>
 			<td class="mitd">
-				<?php echo $this->Form->input('ImporteObraSocial',array('label'=>'Importe obra social: ','min'=>0, 'max'=>5));?>
+				<?php echo $this->Form->input('ImporteObraSocial',array('label'=>'Importe obra social: ', 'style'=>"width:107px;"));?>
 			</td>
 		</tr>
 		 <tr>
@@ -65,7 +68,7 @@
 				<?php echo $this->Form->input('NombreART',array('label'=>'ART: '));?>
 			</td>
 			<td class="mitd">
-				<?php echo $this->Form->input('ImporteArt',array('label'=>'Importe ART: ','min'=>0, 'max'=>5));?>
+				<?php echo $this->Form->input('ImporteArt',array('label'=>'Importe ART: ', 'style'=>"width:107px;"));?>
 			</td>
 		</tr>
 		<tr>
@@ -73,7 +76,7 @@
 				<?php echo $this->Form->input('PagaAsignacionEstumulo',array('label'=>'Paga asignacion estimulo: '));?>
 			</td>
 			<td class="mitd">
-				<?php echo $this->Form->input('ImporteAsignacionEstimulo',array('label'=>'Importe asignacion estimulo: ','min'=>0, 'max'=>5));?>
+				<?php echo $this->Form->input('ImporteAsignacionEstimulo',array('label'=>'Importe asignacion estimulo: ', 'style'=>"width:107px;"));?>
 			</td>
 		</tr>
 			

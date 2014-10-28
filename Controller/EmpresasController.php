@@ -14,10 +14,10 @@ class EmpresasController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Session');
-
+	public $components = array('Paginator', 'Session','RequestHandler');
+	public $helpers = array('Js'=>array('Jquery'));
 	var $paginate = array(
-		'limit' => 1, 
+		'limit' => 20, 
 		'page' => 1,
 		'order'=>array('Empresa.id ASC'));
 /**
@@ -169,10 +169,10 @@ class EmpresasController extends AppController {
 
         //$this->pageTitle = '- LISTADO DE FAMILIAS -'; 
         $this->autoRender = false;
-        $search = $this->data[$this->Empresa]['EmpresaCUIT'];
-        $cond ="";
-        $i=0;
-        
+        //$search = $this->data[$this->Empresa]['EmpresaCUIT'];
+        $opciones=array('conditions' => array('Empresa.EmpresaCUIT LIKE' =>'%'.$this->request->query[''].'%'));	
+	    $empresasEncontradas = $this->Empresa->find('all',$opciones);
+        /*
         foreach($this->{$this->Empresa}->_schema as $field => $value){
             if($i>0){
             $cond = $cond. " OR ";
@@ -180,11 +180,13 @@ class EmpresasController extends AppController {
             $cond = $cond. " ".$this->Empresa.".".$field." LIKE '%".$search."%' ";
             $i++;
         }
-        
-        $conditions = array('conditions'=> $cond);
-        $this->paginate = $conditions;
+       	*/
+       	//$conditions = "id = 1";
+		//$this->paginate = array('limit' => 20, 'page' => 1,'conditions' => $conditions);
+       	$this->paginate = $opciones;
         $this->set(strtolower($this->name), $this->paginate());
         $this->render('index');
+
     }
 
 

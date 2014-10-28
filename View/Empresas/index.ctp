@@ -20,7 +20,7 @@
 		 				</td>
 		 				<td class="mitd" >
 		 					<?php 
-		 						echo $this->Form->create('Empresa', array('type' => 'post', 'action' => 'search'));
+		 						
 								echo $this->Form->input('Razon Social');
 		 					?>
 		 				</td>
@@ -35,7 +35,7 @@
 		 					
 		 				</td>
 		 				<td class="mitd">
-		 					<?php  echo $this->Form->submit("Buscar")?>
+		 					<?php  echo $this->Form->end("Buscar") //'url' => array('controller' => 'empresas','action' => 'editar'))?>
 		 				</td>		
 			<td valign="bottom" bgcolor="white">
 			<p >Nueva Empresa 

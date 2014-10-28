@@ -172,10 +172,11 @@ class Empresa extends AppModel {
 		           			'message' => 'Este CUIT ya existe.',
 		            		'last' => true
 		         				),
+						/*
 						 'isValid'=> array(
 						 	 'rule'=> 'isValid',
 						 	 'message'=> 'CUIT invalido',
-						 	),
+						 	),*/
 											       	 		
 		             ),
 

@@ -84,10 +84,14 @@
 			</tr>
 			<tr>
 				<td class="mitd">
-				<?php /*<p>Fecha del convenio <input type="text" id="datepicker"></p>*/ ?>
+				<p>Fecha del convenio <input type="text" id="datepicker"></p> 
+				<?php 
+				/*
+				echo $this->Form->hidden('ConvenioFecha',array('label'=>'Fecha del convenio','default' =>"00-00-0000",array('id' => 'datepicker')));*/
+				?>
 				<?php 
 
-				echo $this->Form->input('ConvenioFecha',array('label'=>'Fecha del convenio','default' =>"00-00-0000"));
+				echo $this->Form->text('ConvenioFecha',array('value'=>'datepicker','default' =>"00-00-0000"));
 				?>
 								
 				</td>				

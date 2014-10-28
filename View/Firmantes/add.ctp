@@ -4,12 +4,12 @@
 
 	<br>
 	<fieldset>
-		<legend><?php echo __('Nuevo Firmante'); ?></legend>
+		<legend><?php echo __('Datos del Firmante'); ?></legend>
 		<table>
 		<tr>
 			<td class="mitd">
 				<?php
-					echo $this->Form->input('FirmanteCUIL',array('label'=>'CUIL: '));?>
+					echo $this->Form->input('FirmanteCUIL',array('label'=>'CUIL: ','style'=>"width:107px;"));?>
 			</td>
 			<td class="mitd">
 				<?php

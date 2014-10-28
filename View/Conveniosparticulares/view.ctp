@@ -6,6 +6,8 @@
 <dl>
 <table cellspacing="2" >
 <tr class="mitr" >
+
+
 	<td class="mitdLeft">
 	
 	
@@ -121,16 +123,15 @@
 		</dd>
 	</td>
 </tr>
+
+
+
 </table>		
 </dl>
 
 </fieldset>
-	<dl>
-		
-		
-		
-		
-	</dl>
+
+
 </div>
 
 <!--<div class="related">
