@@ -8,8 +8,9 @@
         </title>
         <?php
             echo $this->Html->meta('icon');
-            echo $this->Html->css(array('reset','style','redmond/jquery-ui-1.9.2.custom'));
+            echo $this->Html->css(array('reset','style','jquery-ui-1.9.2.custom')); //
             echo $this->Html->script(array('jquery-1.8.3','jquery-ui-1.9.2.custom.min','http://code.jquery.com/ui/1.9.0/jquery-ui.js'));
+          
             echo $this->fetch('meta');
             echo $this->fetch('css');
             echo $this->fetch('script');
@@ -50,14 +51,14 @@
                             <ul>
                                 <li>
                                     <?php 
-                                        echo $this->Html->link('Convenios Marcos',
+                                        echo $this->Html->link('Marcos',
                                             array('controller'=>'Empresas','action'=>'indexConvenio')
                                                 )
                                     ?>
                                 </li>
 				<li>
                                     <?php 
-                                        echo $this->Html->link('Convenios Particulares',
+                                        echo $this->Html->link('Particulares',
                                             array('controller'=>'Conveniosparticulares','action'=>'index'))?>
 				</li>
                             </ul> 

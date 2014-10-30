@@ -16,6 +16,8 @@ class EmpresasController extends AppController {
  */
 	public $components = array('Paginator', 'Session','RequestHandler');
 	public $helpers = array('Js'=>array('Jquery'));
+
+
 	var $paginate = array(
 		'limit' => 20, 
 		'page' => 1,

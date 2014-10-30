@@ -148,79 +148,65 @@
 				    		'url' => array('controller' => 'firmantes','action' => 'add',$empresa['Empresa']['id'])
 							)); ?> </p>
 <?php  
-}
-?>
-	<?php if (!empty($empresa['Firmante'])): ?>
+}?>
+<div class="related">
+		
+	
+	<?php if (!empty($empresa['Firmante'])){ ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr class="mitr">		
-		<th><?php echo __('FirmanteCUIL'); ?></th>
-		<th><?php echo __('Nombre'); ?></th>
-		<th><?php echo __('Apellido'); ?></th>
-		<th><?php echo __('FirmanteCargo'); ?></th>
+		<th><?php echo __('CUIL'); ?></th>
+		<th><?php echo __('Nombre y Apellido'); ?></th>
+		<th><?php echo __('Teléfono') ?></th>
+		<th><?php echo __('Cargo'); ?></th>
+		<th><?php echo "Acciones"; ?></th>
 		
-		<th class="actions"><?php echo __('Actions'); ?></th>
+		
 	</tr>
 	<?php foreach ($empresa['Firmante'] as $firmante): ?>
 		<tr class="mitr">
 			<td><?php echo $firmante['FirmanteCUIL']; ?></td>	
-			<td><?php echo $firmante['FirmanteNombre']; ?></td>
-			<td><?php echo $firmante['FirmanteApellido']; ?></td>		
+			<td><?php echo $firmante['FirmanteNombre']; ?>&nbsp;
+			<?php echo $firmante['FirmanteApellido']; ?></td>	
+			<td><?php echo $firmante['FirmanteTelefono'] ?></td>	
 			<td><?php echo $firmante['FirmanteCargo']; ?></td>
-			<td class="tabla" >
+			<td class="tabla">
 
 				<?php echo $this->html->image("mi_form/view.png", array(
 			    		"alt" => "Agregar",
 			    		'title' =>"ver firmante",
 			    		'url' => array('controller' => 'firmantes', 'action' => 'view', $firmante['id'])
-						)); ?>
-				<?php echo $this->html->image("mi_form/edit.png", array(
+						)); 
+
+				echo $this->html->image("mi_form/edit.png", array(
 			    		"alt" => "Agregar",
 			    		'title' =>"editar firmante",
 			    		'url' => array('controller' => 'firmantes', 'action' => 'edit', $firmante['id'])
-						)); ?>
-				
-				
-					
-			</td>
+						)); 
+
+
+					?>
+
+			
 		</tr>
 	<?php endforeach; ?>
-	</fieldset>
-
-	<div class="related">
-	
-	
-	 
-		
-	
 
 	</table>
-<?php endif; ?>
-<br><br>
-<hr>
-	
+<?php }else{
+	echo "No hay firmantes";
+	} ?>
 
-	
 <br><br>
 <div class="related">
 	
 	<h3><?php echo __('Anexos Asociados'); ?></h3>
+	<?php echo "no hay anexos"; ?>
 </div>
 </fieldset>
 <br>
-	</fieldset>
 
 
-<?php echo $this->Form->end(__('Registrar')); ?>
-		
 
-
-		
-<br>
-<br>
-<br>
-<br>
-<br>
-</div>
 
 	
 

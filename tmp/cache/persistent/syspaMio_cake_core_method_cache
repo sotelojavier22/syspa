@@ -1,2 +1,2 @@
-1414461100
-a:2:{s:4:"name";a:5:{s:32:"fa80b6de737bb2cd873225117a826eb8";s:7:"`syspa`";s:32:"c001acb1165a2b044d381211c043c9c2";s:10:"`empresas`";s:32:"47eb7bb09414c64f779510914712b6ee";s:7:"`count`";s:32:"a1e7091631b97901fc29ccf037a568ee";s:23:"`Empresa`.`EmpresaCUIT`";s:32:"f2afaf15f76531b8d116a419397a871e";s:9:"`Empresa`";}s:6:"fields";a:1:{s:32:"972f49ddaf98cd7dab04c0254e2b7d63";a:1:{i:0;s:19:"COUNT(*) AS `count`";}}}
+1414689949
+a:1:{s:4:"name";a:2:{s:32:"fa80b6de737bb2cd873225117a826eb8";s:7:"`syspa`";s:32:"c001acb1165a2b044d381211c043c9c2";s:10:"`empresas`";}}

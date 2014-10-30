@@ -222,14 +222,10 @@ class Empresa extends AppModel {
 					 	'message' => 'Falta completar'
 					  ),
 
-					 'ConvenioFecha'=> array(
-							'rule' => 'date',
-					        'message' => 'Ingrese una fecha válida usando el formato DD/MM/AAAA.',
-					        'allowEmpty' => true
-					  ),
-
-
-
+					  'ConvenioFecha'=> array(
+					  	'rule'=>'date',
+					  	'message'=> 'la fecha debe ser de formato AAAA-MM-DD',
+					  	),
 
 					 );
 
