@@ -11,7 +11,19 @@ App::uses('AppModel', 'Model');
  */
 class Empresa extends AppModel {
 
-
+public $actsAs = array(
+        'Search.Searchable'
+    );
+   public $filterArgs = array(
+        'CUIT' => array(
+            'type' => 'like',
+            'field' => 'EmpresaCUIT'
+        ),
+		'RazonSocial'=> array (
+			'type' =>'like',
+			'field'=>'EmpresaRazonSocial'
+		)  
+    );
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**

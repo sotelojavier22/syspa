@@ -14,9 +14,9 @@ class EmpresasController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Session','RequestHandler');
+	public $components = array('Paginator', 'Session','RequestHandler','Search.Prg');
 	public $helpers = array('Js'=>array('Jquery'));
-
+	
 
 	var $paginate = array(
 		'limit' => 20, 
@@ -27,10 +27,19 @@ class EmpresasController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	/*public function index() {
 		$this->Empresa->recursive = 0;
+		$conditions = "Empresa.id = 1 ";
+		$this->paginate = array('limit' => 20, 'page' => 1,'conditions' => $conditions);
 		$this->set('empresas', $this->Paginator->paginate());
 		
+	}//esta es la de mia*/
+
+	public function index() {
+		$this->Empresa->recursive = 0;
+		$this->Prg->commonProcess();
+        $this->Paginator->settings['conditions'] = $this->Empresa->parseCriteria($this->Prg->parsedParams());	
+        $this->set('empresas', $this->Paginator->paginate());
 	}
 
 /**
@@ -64,6 +73,17 @@ class EmpresasController extends AppController {
 			}
 		}
 	}
+	public function add2() {
+		if ($this->request->is('post')) {
+			$this->Empresa->create();
+			if ($this->Empresa->save($this->request->data)) {
+				$this->Session->setFlash(__('Empresa registrada satisfactoriamente'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('Lo siento, no se pudo registrar la empresa'));
+			}
+		}
+	}
 
 /**
  * edit method
@@ -76,13 +96,6 @@ class EmpresasController extends AppController {
 		if (!$this->Empresa->exists($id)) {
 			throw new NotFoundException(__('Empresa invalida'));
 		}
-		//$empresa=$this->Empresa->find($id);
-		//$CUIT=$empresa['Empresa']['EmpresaCUIT'];
-		//$convenioFecha=$empresa['Empresa']['ConvenioFecha'];
-		//$PorcentajeGasto=$empresa['Empresa']['PorcentajeGasto'];
-		//$PagaObraSocial=$empresa['Empresa']['PagaObraSocial'];
-		//$PagaseguroTrabajo=$empresa['Empresa']['PagaSeguroTrabajo'];
-		//$PagaAsignacionEstimulo=$empresa['Empresa']['PagaAsignacionEstimulo'];
 
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Empresa->save($this->request->data)) {
@@ -100,6 +113,9 @@ class EmpresasController extends AppController {
 
 
 	public function editar($id = null) {
+		$this->loadModel('Anexo');
+		$this->loadModel('Firmante');
+		
 		if (!$this->Empresa->exists($id)) {
 			throw new NotFoundException(__('Empresa Invalida'));
 		}
@@ -108,9 +124,13 @@ class EmpresasController extends AppController {
 		$this->set('empresa', $this->Empresa->find('first', $options));
 		//aca suspendo
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Empresa->save($this->request->data)) {
-				$this->Session->setFlash(__('Se suspendio el convenio Sastifactoriamente.'));
-				return $this->redirect(array('action' => 'index'));
+
+			if ($this->Empresa->save($this->request->data['Empresa'])) {
+
+				$this->Firmante->saveAll($this->request->data['Firmante']);
+				//$this->Anexo->saveAll($this->request->data['Anexo']);	
+				$this->Session->setFlash(__('Se edito la empresa Sastifactoriamente.'));
+				return $this->redirect(array('controller' => 'empresas','action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('No se pudo suspender el convenio.'));
 			}
@@ -118,6 +138,16 @@ class EmpresasController extends AppController {
 			$options = array('conditions' => array('Empresa.' . $this->Empresa->primaryKey => $id));
 			$this->request->data = $this->Empresa->find('first', $options);
 		}
+
+		$empresas = $this->Firmante->Empresa->find('list');
+		
+        $this->set('empresa_id',$id); 
+
+		//$this->Firmante->Empresa->recursive=0;
+		//$empresas = $this->Firmante->Empresa->find('list');
+		//$anexos = $this->Anexo->Empresa->find('list');
+		
+		$this->set(compact('empresas'));
 	}
 
 
@@ -154,7 +184,7 @@ class EmpresasController extends AppController {
 		//aca suspendo
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Empresa->save($this->request->data)) {
-				$this->Session->setFlash(__('Se suspendio el convenio Sastifactoriamente.'));
+				$this->Session->setFlash(__('Se suspendio el convenio Satisfactoriamente'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('No se pudo suspender el convenio.'));
@@ -169,25 +199,7 @@ class EmpresasController extends AppController {
 
 	function search(){
 
-        //$this->pageTitle = '- LISTADO DE FAMILIAS -'; 
-        $this->autoRender = false;
-        //$search = $this->data[$this->Empresa]['EmpresaCUIT'];
-        $opciones=array('conditions' => array('Empresa.EmpresaCUIT LIKE' =>'%'.$this->request->query[''].'%'));	
-	    $empresasEncontradas = $this->Empresa->find('all',$opciones);
-        /*
-        foreach($this->{$this->Empresa}->_schema as $field => $value){
-            if($i>0){
-            $cond = $cond. " OR ";
-            }
-            $cond = $cond. " ".$this->Empresa.".".$field." LIKE '%".$search."%' ";
-            $i++;
-        }
-       	*/
-       	//$conditions = "id = 1";
-		//$this->paginate = array('limit' => 20, 'page' => 1,'conditions' => $conditions);
-       	$this->paginate = $opciones;
-        $this->set(strtolower($this->name), $this->paginate());
-        $this->render('index');
+ 
 
     }
 

@@ -56,8 +56,11 @@ class AnexosController extends AppController {
 				$this->Session->setFlash(__('The anexo could not be saved. Please, try again.'));
 			}
 		}
-		$empresas = $this->Anexo->Empresa->find('list');
-		$this->set(compact('empresas'));
+		//$empresas = $this->Anexo->Empresa->find('list');
+		//$this->set('empresa_id',$Anexo['empresa_id']);
+		//$this->set('EmpresaCUIT',$Anexo['EmpresaCUIT']); 
+		//$this->set('empresa_id',$empresa_id); 		
+		$this->set(compact('empresas',$Anexo));
 	}
 
 /**

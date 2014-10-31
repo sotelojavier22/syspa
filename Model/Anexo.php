@@ -31,7 +31,7 @@ class Anexo extends AppModel {
  *
  * @var array
  */
-	public $hasMany = array(
+	/*public $hasMany = array(
 		'Firmante' => array(
 			'className' => 'Firmante',
 			'foreignKey' => 'anexo_id',
@@ -45,6 +45,6 @@ class Anexo extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		)
-	);
+	);*/
 
 }

@@ -7,21 +7,23 @@
 		
 	 
 	<br>
-	<table>
+	
+	
+	 <table>
 		
 	
 	<tr bgcolor="D3DEF0">
 	
 		 	<td class="mitd"  >
 		 					<?php 
-		 						echo $this->Form->create('Empresa', array('type' => 'post', 'action' => 'search'));
+		 						echo $this->Form->create('Empresa');
 								echo $this->Form->input('CUIT');
 		 					?>
 		 				</td>
 		 				<td class="mitd" >
 		 					<?php 
-		 						
-								echo $this->Form->input('Razon Social');
+		 						echo $this->Form->create('Empresa');
+								echo $this->Form->input('RazonSocial');
 		 					?>
 		 				</td>
 		 				<td class="mitd" >
@@ -35,7 +37,12 @@
 		 					
 		 				</td>
 		 				<td class="mitd">
-		 					<?php  echo $this->Form->end("Buscar") //'url' => array('controller' => 'empresas','action' => 'editar'))?>
+		 					<?php echo $this->Form->Button(__('Buscar'));
+							  //echo $this->Form->end();
+							  ?>
+							  <script>
+									$( "button" ).button();
+								</script>
 		 				</td>		
 			<td valign="bottom" bgcolor="white">
 			<p >Nueva Empresa 

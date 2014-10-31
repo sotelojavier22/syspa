@@ -1,4 +1,8 @@
 <div class="empresas form">
+
+ 
+	
+	
 <?php echo $this->Form->create('Empresa'); ?>
 <?php
 					echo $this->Form->hidden('id');
@@ -14,7 +18,7 @@
 		<tr>
 			<td class="mitd">
 				<?php
-					echo $this->Form->input('EmpresaCUIT',array('label'=>'CUIT: ', 'min'=>0, 'max'=>99999999999));?>
+					echo $this->Form->input('Empresa.EmpresaCUIT',array('label'=>'CUIT: ', 'min'=>0, 'max'=>99999999999));?>
 			</td>
 			<td class="mitd">
 				<?php
@@ -79,25 +83,38 @@
 					<?php echo $this->Form->input('RepresentanteNombre',array('label'=>'Representante Nombre: '));?>
 				</td>
 				<td class="mitd">
-					<?php echo $this->Form->input('RepresentanteDNI',array('label'=>' Representante DNI: ',  'style'=>"width:87px;"));?>
+					<?php echo $this->Form->input('RepresentanteDNI',array('label'=>' Representante DNI: ',  'style'=>"width:76px;"));?>
 				</td>
 			
 
 			</tr>
 			<tr>
 				<td class="mitd">
-				<?php /*<p>Fecha del convenio <input type="text" id="datepicker"></p>*/ ?>
+				
 				<?php 
+				echo "Fecha de alta: <b>(YYYY-MM-DD)</b> ".$this->Form->inputText('ConvenioFecha',array(
+					'label'=>' ConvenioFecha ',
+					'class'=>'datepicker',
+					'style'=>"width:76px;"
 
-				echo $this->Form->input('ConvenioFecha',array('label'=>'Fecha del convenio'));
+					));
 				?>
+				
 								
 				</td>
 				<td class="mitd">
 				<?php if (!(is_null($empresa['Empresa']['ConvenioFechaBaja']))){
  						
-						echo $this->Form->input('ConvenioFechaBaja',array('label'=>'Fecha de baja')); 
+						
+						echo "Fecha de baja: <b>(YYYY-MM-DD)</b> ".$this->Form->inputText('ConvenioFechaBaja',array(
+							'id'=>'datepicker',
+							'style'=>"width:76px;")); 
   						?> 
+  						 <script>
+        $(function() {
+        $( "#datepicker" ).datepicker();
+        });
+    </script>
 						<?php  
 						}
 						?>
@@ -203,6 +220,10 @@
 	<?php echo "no hay anexos"; ?>
 </div>
 </fieldset>
+
+<br>
+<br>
+<br>
 <br>
 
 
@@ -210,3 +231,87 @@
 
 	
 
+
+
+
+<div class="firmantes form">
+<?php echo $this->Form->create('Firmante'); ?>
+	<h2><?php echo 'Registrar Firmante'?></h2>
+
+	<br>
+	<fieldset>
+		<legend><?php echo __('Datos del Firmante'); ?></legend>
+		<table>
+		<?php //echo $this->Form->create('Firmante'); 
+
+
+?>
+		<tr>
+			<td class="mitd">
+				<?php
+					echo $this->Form->input('Firmante.FirmanteCUIL',array('label'=>'CUIL: ','style'=>"width:107px;"));?>
+			</td>
+			<td class="mitd">
+				<?php
+					echo $this->Form->input('Firmante.FirmanteCargo',array('label'=>'Cargo '));?>
+					
+			</td>
+		</tr>
+		<tr>
+			<td class="mitd">
+				<?php echo $this->Form->input('Firmante.FirmanteNombre',array('label'=>'Nombre'));?>
+
+				
+			</td>
+			<td class="mitd">
+				<?php echo $this->Form->input('Firmante.FirmanteApellido',array('label'=>'Apellido '));?>
+
+			</td>
+		</tr>
+		<tr>
+			<td class="mitd">
+				<?php echo $this->Form->input('Firmante.FirmanteTelefono',array('label'=>'Teléfono'));?>
+			</td>
+			<td class="mitd">
+				<?php echo $this->Form->input('Firmante.FirmanteDireccion',array('label'=>'Dirección '));?>
+			</td>
+		</tr>
+		<tr>
+			<td class="mitd">
+				<?php echo $this->Form->input('Firmante.FirmanteCorreo',array('label'=>'E-mail '));?>
+			</td>
+			<td class="mitd">
+				
+			</td>
+		</tr>
+		<tr>
+			<td class="mitd">
+			 	
+			 	<?php echo $this->Form->hidden('empresa_id',array('value'=>$empresa_id,'default'=>$empresa_id)); ?>
+			 	<?php echo $this->Form->input('Firmante.EmpresaCUIT',array('value'=>($empresa['Empresa']['EmpresaCUIT']),'default'=>($empresa['Empresa']['EmpresaCUIT']))); ?>
+				
+			</td>
+		</tr>
+		</table>
+
+	</fieldset>
+	</div>
+	<div class="anexos form">
+	<?php /*echo $this->Form->create('Anexo');
+	
+	echo $this->Form->input('id');
+	echo $this->Form->input('Anexo.empresa_id',array('value'=>$empresa_id,'default'=>$empresa_id));
+	echo $this->Form->input('Anexo.EmpresaCUIT',array('value'=>($empresa['Empresa']['EmpresaCUIT']),'default'=>($empresa['Empresa']['EmpresaCUIT'])));
+	echo $this->Form->input('Anexo.ConvenioFechaAnterior',array('value'=>($empresa['Empresa']['ConvenioFecha']),'default'=>($empresa['Empresa']['ConvenioFecha'])));
+	echo $this->Form->input('Anexo.PorcentajeGastoAnterior',array('value'=>($empresa['Empresa']['PorcentajeGasto']),'default'=>($empresa['Empresa']['PorcentajeGasto'])));
+	echo $this->Form->input('Anexo.PagaObraSocialAnterior',array('value'=>($empresa['Empresa']['PagaObraSocial']),'default'=>($empresa['Empresa']['PagaObraSocial'])));
+	echo $this->Form->input('Anexo.PagaSeguroTrabajoAnterior',array('value'=>($empresa['Empresa']['PagaSeguroTrabajo']),'default'=>($empresa['Empresa']['PagaSeguroTrabajo'])));
+	echo $this->Form->input('Anexo.PagaAsignacionEstimuloAnterior',array('value'=>($empresa['Empresa']['PagaAsignacionEstimulo']),'default'=>($empresa['Empresa']['PagaAsignacionEstimulo'])));
+*/?>
+</div>
+<?php echo $this->Form->end(__('Registrar')); ?>
+<br>
+<br>
+<br>
+<br>
+<br>
