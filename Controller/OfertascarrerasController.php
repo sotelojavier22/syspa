@@ -23,6 +23,21 @@ class OfertascarrerasController extends AppController {
 		$this->Ofertascarrera->recursive = 0;
 		$this->set('ofertascarreras', $this->Paginator->paginate());
 	}
+        
+        public function detallecarreras($OfertaId,$OfertaDescripcion) {
+            $carreras = $this->Ofertascarrera->find('all',
+                    array(
+                        'fields' => array(
+                            'id',
+                            'carrera_id'
+                        ),
+                        'conditions' => array('oferta_id' == $OfertaId)
+                    )
+                );
+            $this->set('carreras',$carreras);
+            $this->set('OfertaId',$OfertaId);
+            $this->set('OfertaDescripcion',$OfertaDescripcion);
+        }
 
 /**
  * view method
