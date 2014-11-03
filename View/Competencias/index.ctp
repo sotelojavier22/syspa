@@ -26,9 +26,7 @@
 		<td class="tabla"><?php echo h($competencia['Competencia']['id']); ?>&nbsp;</td>
 		<td class="tabla"><?php echo h($competencia['Competencia']['CompetenciaNombre']); ?>&nbsp;</td>
 		<td class="tabla">
-                    <?php echo $this->Html->link($competencia['Area']['id'], 
-                        array('controller' => 'areas', 'action' => 'view', $competencia['Area']['id'])); 
-                    ?>
+                    <?php echo h($competencia['Area']['AreaDescripcion']);?>
 		</td>
 		<td class="tabla">
                     <?php echo $this->html->image("mi_form/view.png",

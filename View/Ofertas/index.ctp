@@ -35,18 +35,18 @@
 		<td class="tabla">
                     <?php echo $this->html->image("mi_form/carreras.png", 
                             array("alt" => "Ver", 'title' =>"Carreras",'url' => 
-                                array('controller' => 'Ofertascarreras','action' => 'detallecarreras',$oferta['Oferta']['id'],$oferta['Oferta']['OfertaDescripcion']), 
+                                array('controller' => 'Ofertascarreras','action' => 'detallecarreras',$oferta['Oferta']['id']), 
                                     array('class'=>'view')
 				)
                             ); 
                     ?>
                     <?php echo $this->html->image("mi_form/requisitos.png", 
                             array("alt" => "Ver", 'title' =>"Requisitos",'url' => 
-                                array('controller' => 'ofertas','action' => 'viewrequisitos',$oferta['Oferta']['id']), 
+                                array('controller' => 'Requisitoscompetencias','action' => 'detallerequisitos',$oferta['Oferta']['id']), 
                                     array('class'=>'view')
 				)
                             ); 
-                    ?>                                        
+                    ?>                                      
                     <?php echo $this->html->image("mi_form/view.png", 
                             array("alt" => "Ver", 'title' =>"Ver Oferta",'url' => 
                                 array('controller' => 'ofertas','action' => 'view',$oferta['Oferta']['id']), 

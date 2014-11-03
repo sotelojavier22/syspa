@@ -3,18 +3,19 @@ App::uses('AppModel', 'Model');
 /**
  * Materia Model
  *
+ * @property Carrera $Carrera
  * @property Alumnosmateria $Alumnosmateria
  * @property Requisitosmateria $Requisitosmateria
  */
 class Materia extends AppModel {
-
+    public $displayField = 'materia';
 /**
  * Validation rules
  *
  * @var array
  */
 	public $validate = array(
-		'CarreraId' => array(
+		'carrera_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -24,7 +25,7 @@ class Materia extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'Materia' => array(
+		'materia' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -37,6 +38,21 @@ class Materia extends AppModel {
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+/**
+ * belongsTo associations
+ *
+ * @var array
+ */
+	public $belongsTo = array(
+		'Carrera' => array(
+			'className' => 'Carrera',
+			'foreignKey' => 'carrera_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
 
 /**
  * hasMany associations
